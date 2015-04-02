@@ -55,7 +55,7 @@ public class FormPembelian extends javax.swing.JFrame {
                     Pembelian pembelian = tableModelPembelian.get(row);
                     Id_Pembelian.setValue(pembelian.getId_Pembelian());
                     Id_Suplier.setSelectedItem(pembelian.getId_Suplier().toString());
-                    Tgl.setValue(pembelian.getTgl());   
+                    Tanggal.setValue(pembelian.getTgl());   
                 }
             }
         });
@@ -76,7 +76,7 @@ public class FormPembelian extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        Tgl = new javax.swing.JFormattedTextField();
+        Tanggal = new javax.swing.JFormattedTextField();
         Id_Pembelian = new javax.swing.JFormattedTextField();
         Id_Suplier = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
@@ -107,10 +107,10 @@ public class FormPembelian extends javax.swing.JFrame {
 
         jLabel2.setText("Id_Suplier");
 
-        jLabel3.setText("Tanggal");
+        jLabel3.setText("Tanggal_");
 
-        Tgl.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd MMMM yyyy"))));
-        Tgl.setValue(new java.util.Date());
+        Tanggal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd MMMM yyyy"))));
+        Tanggal.setValue(new java.util.Date());
 
         Id_Pembelian.setEditable(false);
         Id_Pembelian.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
@@ -118,12 +118,12 @@ public class FormPembelian extends javax.swing.JFrame {
 
         Id_Suplier.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "[Pilih]" }));
         Id_Suplier.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+                Id_SuplierPopupMenuWillBecomeVisible(evt);
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
             }
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                Id_SuplierPopupMenuWillBecomeVisible(evt);
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
         });
 
@@ -145,7 +145,7 @@ public class FormPembelian extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Tgl, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)))
+                        .addComponent(Tanggal, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)))
                 .addGap(64, 64, 64))
         );
         jPanel1Layout.setVerticalGroup(
@@ -160,7 +160,7 @@ public class FormPembelian extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Tgl)
+                    .addComponent(Tanggal)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
@@ -214,7 +214,7 @@ public class FormPembelian extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -241,7 +241,7 @@ public class FormPembelian extends javax.swing.JFrame {
 
     private void InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertActionPerformed
         // TODO add your handling code here:
- if(Tgl.getText().equalsIgnoreCase("")||Id_Suplier.getSelectedItem().equals("[Pilih]")){
+ if(Tanggal.getText().equalsIgnoreCase("")||Id_Suplier.getSelectedItem().equals("[Pilih]")){
        JOptionPane.showMessageDialog(null, "Data Yang Anda Inputkan Belum Lengkap");
 
    }
@@ -252,7 +252,7 @@ public class FormPembelian extends javax.swing.JFrame {
         try{
            Pembelian pembelian = new Pembelian();
            pembelian.setId_Suplier(y);
-           pembelian.setTgl((Date) Tgl.getValue());
+           pembelian.setTgl((Date) Tanggal.getValue());
 
            Pembelian pembelian1= pembelianService.insertPembelian(pembelian);
            tableModelPembelian.insert(pembelian1);
@@ -264,7 +264,7 @@ public class FormPembelian extends javax.swing.JFrame {
 
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
         // TODO add your handling code here:
-  if(Tgl.getText().equalsIgnoreCase("")||Id_Suplier.getSelectedItem().equals("[Pilih]")){
+  if(Tanggal.getText().equalsIgnoreCase("")||Id_Suplier.getSelectedItem().equals("[Pilih]")){
        JOptionPane.showMessageDialog(null, "Data Yang Anda Inputkan Belum Lengkap");
 
    }
@@ -279,7 +279,7 @@ public class FormPembelian extends javax.swing.JFrame {
          long y = Long.parseLong(x);
            Pembelian pembelian =tableModelPembelian.get(row);
            pembelian.setId_Suplier(y);
-           pembelian.setTgl((Date) Tgl.getValue());
+           pembelian.setTgl((Date) Tanggal.getValue());
 
            pembelianService.updatePembelian(pembelian);
            tableModelPembelian.update(row, pembelian);
@@ -370,7 +370,7 @@ public class FormPembelian extends javax.swing.JFrame {
     private javax.swing.JComboBox Id_Suplier;
     private javax.swing.JButton Insert;
     private javax.swing.JButton Refresh;
-    private javax.swing.JFormattedTextField Tgl;
+    private javax.swing.JFormattedTextField Tanggal;
     private javax.swing.JButton Update;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
