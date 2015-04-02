@@ -29,7 +29,7 @@ import javax.swing.event.ListSelectionListener;
 
 /**
  *
- * @author Madridista
+ * @author Tiara Ratna Sariiiiiiiiiiii
  */
 public class FormDetail_Pembelian extends javax.swing.JFrame {
 
