@@ -19,6 +19,7 @@ import ClientApplication.form.FormKecantikan;
 import ClientApplication.form.FormKepala_Klinik;
 import ClientApplication.form.FormLab;
 import ClientApplication.form.FormUSG;
+import ClientApplication.form.FormBag_Pembayaran;
 import Database.Service.AdministratorService;
 import Database.Service.ApotekerService;
 import Database.Service.Bag_PembayaranService;
@@ -62,7 +63,7 @@ public class FormLogin extends javax.swing.JFrame {
     FormKepala_Klinik formKepala_Klinik = new FormKepala_Klinik(service6);
     FormLab formLab = new FormLab(service7);
     FormUSG formUSG = new FormUSG(service8);
-    
+ 
     private AdministratorService administratorService;
     
     public FormLogin(AdministratorService administratorService) throws RemoteException, NotBoundException{
@@ -86,19 +87,19 @@ public class FormLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        usernameLabel = new javax.swing.JLabel();
-        passwordLabel = new javax.swing.JLabel();
         usernameField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
         loginButton = new javax.swing.JButton();
         clearButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        usernameLabel.setText("Username");
-
-        passwordLabel.setText("Password");
+        getContentPane().setLayout(null);
+        getContentPane().add(usernameField);
+        usernameField.setBounds(610, 355, 170, 30);
+        getContentPane().add(passwordField);
+        passwordField.setBounds(610, 402, 170, 30);
 
         loginButton.setBackground(new java.awt.Color(255, 255, 255));
         loginButton.setText("Login");
@@ -108,6 +109,8 @@ public class FormLogin extends javax.swing.JFrame {
                 loginButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(loginButton);
+        loginButton.setBounds(690, 450, 65, 28);
 
         clearButton.setBackground(new java.awt.Color(255, 255, 255));
         clearButton.setText("Clear");
@@ -117,6 +120,8 @@ public class FormLogin extends javax.swing.JFrame {
                 clearButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(clearButton);
+        clearButton.setBounds(610, 450, 65, 28);
 
         exitButton.setBackground(new java.awt.Color(255, 255, 255));
         exitButton.setText("Exit");
@@ -126,49 +131,12 @@ public class FormLogin extends javax.swing.JFrame {
                 exitButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(exitButton);
+        exitButton.setBounds(530, 450, 65, 28);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(746, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(usernameLabel))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordLabel))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(576, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background/1.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 0, 0);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -258,11 +226,10 @@ public class FormLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clearButton;
     private javax.swing.JButton exitButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton loginButton;
     private javax.swing.JPasswordField passwordField;
-    private javax.swing.JLabel passwordLabel;
     private javax.swing.JTextField usernameField;
-    private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
 
 }
